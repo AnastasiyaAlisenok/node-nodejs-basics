@@ -1,4 +1,4 @@
-import fs, { cp } from 'fs';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
 
@@ -7,7 +7,7 @@ const filesDir = path.join(dir, 'files');
 const copyDir = path.join(dir, 'files_copy');
 
 const copy = async () => {
-    cp(filesDir, copyDir, {errorOnExist: true, force: false, recursive: true}, (err) => {
+    fs.cp(filesDir, copyDir, {errorOnExist: true, force: false, recursive: true}, (err) => {
         if (err) throw new Error('FS operation failed');
     })
 };
